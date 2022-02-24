@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8" />
+
+	<title>CSS3 Animation Delay</title>
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<style>
+		body{
+			padding: 0;
+			margin: 0;
+			font-size: 16px;
+			line-height: 1.5;
+		}
+		.cng-msg{
+			display: inline-block;
+			width: 100%;
+			position: relative;
+			text-align: center;
+			font-family: 'work_sans', arial;
+		}
+
+		.cng-msg .og-text{
+			display: block;
+			margin: 15px 0;
+			font-size: 20px;
+			line-height: normal;
+			font-weight: normal;
+			color: #444;
+		}
+		.cng-msg h2{
+			margin: 0 0 15px;
+			font-size: 36px;
+			line-height: 1.2;
+			font-weight: bold;
+			color: #444;
+		}
+
+		.cng-msg h1{
+			margin: 0 0 10px;
+			font-size: 40px;
+			line-height: 1.2;
+			font-weight: bold;
+			text-transform: uppercase;
+		}
+		.cng-msg .clr{
+			color: #fc2a74;
+		}
+
+		.lds-dual-ring {
+		  display: inline-block;
+		  width: 60px;
+		  height: 60px;
+		  margin: 5px 0 15px;
+		}
+		.lds-dual-ring:after {
+		  content: " ";
+		  display: block;
+		  width: 60px;
+		  height: 60px;
+		  margin: 1px;
+		  border-radius: 50%;
+		  border: 5px solid #18bacd;
+		  border-color: #18bacd transparent #18bacd transparent;
+		  animation: lds-dual-ring 1.2s linear infinite;
+		}
+
+		@keyframes lds-dual-ring {
+			0% {
+				transform: rotate(0deg);
+			}
+			100% {
+				transform: rotate(360deg);
+			}
+		}
+
+		@-webkit-keyframes fadeIn {
+			from {
+				opacity:0;
+			}
+			to {
+				opacity:1;
+			}
+		}
+		@-moz-keyframes fadeIn {
+			from {
+				opacity:0;
+			}
+			to {
+				opacity:1;
+			}
+		}
+		@keyframes fadeIn {
+			from {
+				opacity:0;
+			}
+			to {
+				opacity:1;
+			}
+		}
+
+		.fade-in {
+			opacity: 0;
+			-webkit-animation:fadeIn ease-in 1;
+			   -moz-animation:fadeIn ease-in 1;
+			 		animation:fadeIn ease-in 1;
+
+			-webkit-animation-fill-mode:forwards;
+			   -moz-animation-fill-mode:forwards;
+			   		animation-fill-mode:forwards;
+
+			-webkit-animation-duration: 1s;
+			   -moz-animation-duration: 1s;
+					animation-duration: 1s;
+		}
+
+		.fade-in.anmLavel-0 {
+			-webkit-animation-delay: 0.6s;
+			   -moz-animation-delay: 0.6s;
+					animation-delay: 0.6s;
+		}
+
+		.fade-in.anmLavel-1 {
+			-webkit-animation-delay: 1.5s;
+			   -moz-animation-delay: 1.5s;
+					animation-delay: 1.5s;
+		}
+
+		.fade-in.anmLavel-2 {
+			-webkit-animation-delay: 2.4s;
+			   -moz-animation-delay: 2.4s;
+					animation-delay: 2.4s;
+		}
+
+		.fade-in.anmLavel-3 {
+			-webkit-animation-delay: 3.3s;
+			   -moz-animation-delay: 3.3s;
+					animation-delay: 3.3s;
+		}
+
+		.fade-in.anmLavel-4 {
+			-webkit-animation-delay: 4.1s;
+			   -moz-animation-delay: 4.1s;
+					animation-delay: 4.1s;
+		}
+
+		.fade-in.anmLavel-5 {
+			-webkit-animation-delay: 4.5s;
+			   -moz-animation-delay: 4.5s;
+					animation-delay: 4.5s;
+		}
+
+		.anm-container{
+			height: 100vh;
+			width: 100vw;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			flex-direction: column;
+			max-width: 100%;
+			max-height: 100%;
+		}
+
+		.grd-text-color-1{
+			-webkit-background: linear-gradient(270deg, #fc2a74 0%, #23A6D5 100%);
+			background: linear-gradient(270deg, #fc2a74 0%, #23A6D5 100%);
+			background-clip: border-box;
+			-webkit-background-clip: text;
+			-webkit-text-fill-color: transparent;
+		}
+		.grd-text-color-2{
+			-webkit-background: linear-gradient(-180deg, #6fc7ff 0%, #4beba4 60%, #ffec7f 100%);
+			background: linear-gradient(-180deg, #6fc7ff 0%, #4beba4 60%, #ffec7f 100%);
+			background-clip: border-box;
+  			-webkit-background-clip: text;
+  			-webkit-text-fill-color: transparent;
+		}
+	</style>
+</head>
+
+<body>
+
+	<main class="mainContent">
+		<div class="anm-container">
+			<div class="cng-msg" style="margin: 70px 0;">
+
+				<h2 class="grd-text-color-2">Processing...</h2>
+				<div class="lds-dual-ring clr anmLavel-0 fade-in"></div>
+
+				<div class="og-text clr anmLavel-1 fade-in">Thank you. We are evaluating your answers.</div>
+				<div class="og-text anmLavel-2 fade-in">Compiling data...</div>
+				<div class="og-text clr anmLavel-3 fade-in">Checking...</div>
+				<div class="og-text anmLavel-4 fade-in">Approved to the presentation.</div>
+
+				<h1 class="grd-text-color-1 anmLavel-5 fade-in">Congratulations!</h1>
+			</div>
+		</div>
+
+	</main>
+</body>
+</html>
+
+
