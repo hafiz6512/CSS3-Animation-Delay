@@ -1,7 +1,7 @@
 # CSS3-Animation-Delay
  CSS3 text animation with delay and gradient text color.
 
-### [Demo](https://hafiz6512.github.io/CSS3-Animation-Delay)
+### [Demo](https://hafiz6512.github.io/CSS3-Animation-Delay/)
 
 
 ## Contact With Me
