@@ -1,205 +1,162 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta charset="UTF-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
-	<title>CSS3 Animation Delay</title>
+    <title>Text Animation</title>
+	
+    <style>
+        body {
+            background: #eee;
+        }
+        .container {
+            width: 100%;
+            position: relative;
+            overflow: hidden;
+        }
+        a {
+            text-decoration: none;
+        }
+        .sp-container {
+            position: fixed;
+            top: 0px;
+            left: 0px;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+        }
+        .sp-content {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            left: 0px;
+            top: 0px;
+            z-index: 1000;
+        }
+        .sp-container h2 {
+            position: absolute;
+            background: #eee;
+            top: 50%;
+            line-height: 100px;
+            height: 90px;
+            margin-top: -50px;
+            font-size: 90px;
+            font-family: "Brown",sans-serif;
+            font-weight: 400;
+            color: #394447;
+            width: 100%;
+            text-align: center;
+        }
+        .sp-container h2.frame-1 {
+            -webkit-animation: blurFadeInOut1 9s ease-out infinite;
+            -moz-animation: blurFadeInOut1 9s ease-out infinite;
+            -ms-animation: blurFadeInOut1 9s ease-out infinite;
+            animation: blurFadeInOut1 9s ease-out infinite;
+        }
+        .sp-container h2.frame-2 {
+            -webkit-animation: blurFadeInOut2 9s ease-out infinite;
+            -moz-animation: blurFadeInOut2 9s ease-out infinite;
+            -ms-animation: blurFadeInOut2 9s ease-out infinite;
+            animation: blurFadeInOut2 9s ease-out infinite;
+        }
 
-	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+        @-webkit-keyframes blurFadeInOut1 {
+            0% {
+                opacity: 0;
+                -webkit-transform: scale(1.2);
+            }
+            35% {
+                opacity: 1;
+                -webkit-transform: scale(1);
+            }
+            50% {
+                opacity: 0;
+                -webkit-transform: scale(1.3);
+            }
+            100% {
+                opacity: 0;
+                -webkit-transform: scale(1);
+            }
+        }
 
-	<style>
-		body{
-			padding: 0;
-			margin: 0;
-			font-size: 16px;
-			line-height: 1.5;
-		}
-		.cng-msg{
-			display: inline-block;
-			width: 100%;
-			position: relative;
-			text-align: center;
-			font-family: 'work_sans', arial;
-		}
+        @-webkit-keyframes blurFadeInOut2 {
+            0% {
+                opacity: 0;
+                -webkit-transform: scale(1.2);
+            }
+            40% {
+                opacity: 0;
+                -webkit-transform: scale(1.3);
+            }
+            50% {
+                opacity: 1;
+                -webkit-transform: scale(1);
+            }
+            90% {
+                opacity: 1;
+                -webkit-transform: scale(1);
+            }
+            100% {
+                opacity: 0;
+                -webkit-transform: scale(1.1);
+            }
+        }
 
-		.cng-msg .og-text{
-			display: block;
-			margin: 15px 0;
-			font-size: 20px;
-			line-height: normal;
-			font-weight: normal;
-			color: #444;
-		}
-		.cng-msg h2{
-			margin: 0 0 15px;
-			font-size: 36px;
-			line-height: 1.2;
-			font-weight: bold;
-			color: #444;
-		}
+        @-moz-keyframes blurFadeInOut1 {
+            0% {
+                opacity: 0;
+                -webkit-transform: scale(1.2);
+            }
+            35% {
+                opacity: 1;
+                -webkit-transform: scale(1);
+            }
+            50% {
+                opacity: 0;
+                -webkit-transform: scale(1.3);
+            }
+            100% {
+                opacity: 0;
+                -webkit-transform: scale(1);
+            }
+        }
 
-		.cng-msg h1{
-			margin: 0 0 10px;
-			font-size: 40px;
-			line-height: 1.2;
-			font-weight: bold;
-			text-transform: uppercase;
-		}
-		.cng-msg .clr{
-			color: #fc2a74;
-		}
+        @-moz-keyframes blurFadeInOut2 {
+            0% {
+                opacity: 0;
+                -webkit-transform: scale(1.2);
+            }
+            40% {
+                opacity: 0;
+                -webkit-transform: scale(1.3);
+            }
+            50% {
+                opacity: 1;
+                -webkit-transform: scale(1);
+            }
+            90% {
+                opacity: 1;
+                -webkit-transform: scale(1);
+            }
+            100% {
+                opacity: 0;
+                -webkit-transform: scale(1.1);
+            }
+        }
 
-		.lds-dual-ring {
-		  display: inline-block;
-		  width: 60px;
-		  height: 60px;
-		  margin: 5px 0 15px;
-		}
-		.lds-dual-ring:after {
-		  content: " ";
-		  display: block;
-		  width: 60px;
-		  height: 60px;
-		  margin: 1px;
-		  border-radius: 50%;
-		  border: 5px solid #18bacd;
-		  border-color: #18bacd transparent #18bacd transparent;
-		  animation: lds-dual-ring 1.2s linear infinite;
-		}
-
-		@keyframes lds-dual-ring {
-			0% {
-				transform: rotate(0deg);
-			}
-			100% {
-				transform: rotate(360deg);
-			}
-		}
-
-		@-webkit-keyframes fadeIn {
-			from {
-				opacity:0;
-			}
-			to {
-				opacity:1;
-			}
-		}
-		@-moz-keyframes fadeIn {
-			from {
-				opacity:0;
-			}
-			to {
-				opacity:1;
-			}
-		}
-		@keyframes fadeIn {
-			from {
-				opacity:0;
-			}
-			to {
-				opacity:1;
-			}
-		}
-
-		.fade-in {
-			opacity: 0;
-			-webkit-animation:fadeIn ease-in 1;
-			   -moz-animation:fadeIn ease-in 1;
-			 		animation:fadeIn ease-in 1;
-
-			-webkit-animation-fill-mode:forwards;
-			   -moz-animation-fill-mode:forwards;
-			   		animation-fill-mode:forwards;
-
-			-webkit-animation-duration: 1s;
-			   -moz-animation-duration: 1s;
-					animation-duration: 1s;
-		}
-
-		.fade-in.anmLavel-0 {
-			-webkit-animation-delay: 0.6s;
-			   -moz-animation-delay: 0.6s;
-					animation-delay: 0.6s;
-		}
-
-		.fade-in.anmLavel-1 {
-			-webkit-animation-delay: 1.5s;
-			   -moz-animation-delay: 1.5s;
-					animation-delay: 1.5s;
-		}
-
-		.fade-in.anmLavel-2 {
-			-webkit-animation-delay: 2.4s;
-			   -moz-animation-delay: 2.4s;
-					animation-delay: 2.4s;
-		}
-
-		.fade-in.anmLavel-3 {
-			-webkit-animation-delay: 3.3s;
-			   -moz-animation-delay: 3.3s;
-					animation-delay: 3.3s;
-		}
-
-		.fade-in.anmLavel-4 {
-			-webkit-animation-delay: 4.1s;
-			   -moz-animation-delay: 4.1s;
-					animation-delay: 4.1s;
-		}
-
-		.fade-in.anmLavel-5 {
-			-webkit-animation-delay: 4.5s;
-			   -moz-animation-delay: 4.5s;
-					animation-delay: 4.5s;
-		}
-
-		.anm-container{
-			height: 100vh;
-			width: 100vw;
-			display: flex;
-			align-items: center;
-			justify-content: center;
-			flex-direction: column;
-			max-width: 100%;
-			max-height: 100%;
-		}
-
-		.grd-text-color-1{
-			-webkit-background: linear-gradient(270deg, #fc2a74 0%, #23A6D5 100%);
-			background: linear-gradient(270deg, #fc2a74 0%, #23A6D5 100%);
-			background-clip: border-box;
-			-webkit-background-clip: text;
-			-webkit-text-fill-color: transparent;
-		}
-		.grd-text-color-2{
-			-webkit-background: linear-gradient(-180deg, #6fc7ff 0%, #4beba4 60%, #ffec7f 100%);
-			background: linear-gradient(-180deg, #6fc7ff 0%, #4beba4 60%, #ffec7f 100%);
-			background-clip: border-box;
-  			-webkit-background-clip: text;
-  			-webkit-text-fill-color: transparent;
-		}
-	</style>
+    </style>
+	
 </head>
 
 <body>
+	
+    <div class="sp-container">
+        <div class="sp-content">
+            <div class="sp-globe"></div>
+            <h2 class="frame-1">Check out our</h2>
+            <h2 class="frame-2">latest LinkedIn Posts</h2>
+        </div>
+    </div>
 
-	<main class="mainContent">
-		<div class="anm-container">
-			<div class="cng-msg" style="margin: 70px 0;">
-
-				<h2 class="grd-text-color-2">Processing...</h2>
-				<div class="lds-dual-ring clr anmLavel-0 fade-in"></div>
-
-				<div class="og-text clr anmLavel-1 fade-in">Thank you. We are evaluating your answers.</div>
-				<div class="og-text anmLavel-2 fade-in">Compiling data...</div>
-				<div class="og-text clr anmLavel-3 fade-in">Checking...</div>
-				<div class="og-text anmLavel-4 fade-in">Approved to the presentation.</div>
-
-				<h1 class="grd-text-color-1 anmLavel-5 fade-in">Congratulations!</h1>
-			</div>
-		</div>
-
-	</main>
 </body>
 </html>
-
-
